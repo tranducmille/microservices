@@ -6,11 +6,13 @@ Prerequisites
 Docker: Ensure Docker is installed and running on your system.
 Kubernetes: A Kubernetes cluster (e.g., minikube, GKE, EKS) should be set up and accessible.
 Node.js and npm: Have Node.js and npm installed.
+```bash
 Project Structure
 ├── microservices
 │   ├── post-service
 │   └── comment-service
 └── frontend
+```
 Microservices
 Post Service: Handles post-related operations (e.g., creating, updating, deleting, fetching posts).
 Comment Service: Manages comments associated with posts.
@@ -19,15 +21,14 @@ A React-based frontend application that interacts with the post and comment serv
 Deployment
 Build Docker Images:
 Navigate to each microservice directory and build the Docker images:
-
+```bash
 Bash
 docker build -t post-service .
 docker build -t comment-service .
-Use code with caution.
-
+```
 Deploy to Kubernetes:
 Use Kubernetes manifests (e.g., YAML files) to deploy the microservices as pods and services. Example:
-
+```bash
 YAML
 apiVersion: apps/v1
 kind: Deployment
@@ -47,15 +48,13 @@ spec:
       - name: post-service
         image:   
  post-service
-Use code with caution.
-
+```
 Scaling
 To scale a microservice, adjust the replica count in its deployment manifest and apply the changes to Kubernetes:
 
-Bash
+```bash
 kubectl scale deployment post-service --replicas=5
-Use code with caution.
-
+```
 Additional Considerations
 Service Discovery: Implement service discovery (e.g., using Kubernetes DNS or a dedicated service discovery tool) to enable microservices to find each other.
 Communication: Use a suitable communication protocol (e.g., HTTP, gRPC) between microservices.
@@ -65,5 +64,3 @@ Data Consistency: Consider using techniques like eventual consistency or two-pha
 Contributing
 Contributions are welcome! Please feel free to fork the repository and submit pull requests.
 
-License
-[MIT License]
