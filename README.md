@@ -23,8 +23,18 @@ Build Docker Images:
 Navigate to each microservice directory and build the Docker images:
 ```bash
 Bash
-docker build -t post-service .
-docker build -t comment-service .
+docker build -t <docker_account_id>/posts .
+docker run <docker_account_id>/posts
+
+docker build -t <docker_account_idid>/comments .
+docker run <docker_account_id>/comments
+
+Helper commands:
+docker run -it [image_id or image_tag][cmd]
+Ex: docker ru -it <docker_account_idid>/comments sh
+docker ps
+docker exec -it [container_id][cmd]
+docker logs [container_id]
 ```
 Deploy to Kubernetes:
 Use Kubernetes manifests (e.g., YAML files) to deploy the microservices as pods and services. Example:
